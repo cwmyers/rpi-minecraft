@@ -6,9 +6,9 @@
 # Updated: Dec 14th, 2014
 # -----------------------------------------------------------------------------
 
-VERSION=1.10.2
+VERSION=${1:-1.10.2}
 JAR=minecraft_server.${VERSION}.jar
-MEMORY=`free -tm | grep Total | awk '{print int( $2*.75) }'`
+MEMORY=${2:-`free -tm | grep Total | awk '{print int( $2*.75)"M" }'`}
 
 if [ ! -f /data/$JAR ]
 then
@@ -20,5 +20,5 @@ then
     echo "eula=true" > /data/eula.txt
 fi
 
-cd /data/; java -Xmx${MEMORY}M -jar $JAR nogui
+cd /data/; java -Xmx${MEMORY} -jar $JAR nogui
 
