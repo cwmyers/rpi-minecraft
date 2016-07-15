@@ -20,5 +20,5 @@ then
     echo "eula=true" > /data/eula.txt
 fi
 
-cd /data/; java -Xmx${MEMORY} -jar $JAR nogui
+cd /data/; java -server -Xmx${MEMORY} -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+CMSIncrementalPacing -XX:ParallelGCThreads=2 -XX:+AggressiveOpts -jar $JAR nogui
 
