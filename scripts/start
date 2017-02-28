@@ -6,7 +6,7 @@
 # Updated: Dec 14th, 2014
 # -----------------------------------------------------------------------------
 
-VERSION=${1:-1.10.2}
+VERSION=${1:-1.11.2}
 JAR=minecraft_server.${VERSION}.jar
 MEMORY=${2:-`free -tm | grep Total | awk '{print int( $2*.75)"M" }'`}
 
